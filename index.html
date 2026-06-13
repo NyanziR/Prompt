@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="200 ready-to-use AI prompts for lesson planning, grading, assessment, and student engagement. Built for educators with any level of tech experience.">
+<title>The Educator's AI Prompt Vault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F8F5;
+  --primary:#4F46E5;
+  --primary-dark:#4338CA;
+  --secondary:#14B8A6;
+  --text:#1F2937;
+  --text-light:#6B7280;
+  --white:#FFFFFF;
+  --shadow:0 4px 16px rgba(31,41,55,.08);
+  --shadow-lg:0 10px 30px rgba(31,41,55,.12);
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--primary)}
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 1.25rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ===== Navigation ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(248,248,245,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(31,41,55,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:800;font-size:1.05rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:inline-block}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text-light);font-weight:500;font-size:.95rem;transition:color .2s}
+.nav-links a:hover,.nav-links a:focus{color:var(--primary)}
+.nav-cta{background:var(--primary);color:var(--white)!important;padding:.5rem 1.1rem;border-radius:999px;font-weight:600}
+.nav-cta:hover{background:var(--primary-dark)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.5rem;border-radius:8px}
+.hamburger:focus-visible{outline:3px solid var(--secondary);outline-offset:2px}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--text);margin:5px 0;border-radius:2px;transition:transform .3s,opacity .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ===== Hero ===== */
+.hero{padding:4.5rem 0 3.5rem;text-align:center}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.hero h1 .accent{background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{margin:1.1rem auto 0;max-width:620px;font-size:1.15rem;color:var(--text-light)}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.6rem 1rem;max-width:760px;margin:2rem auto 0;text-align:left;list-style:none}
+.checks li{display:flex;align-items:center;gap:.55rem;font-weight:500;font-size:.97rem}
+.checks .tick{flex:none;width:22px;height:22px;border-radius:50%;background:rgba(20,184,166,.14);color:var(--secondary);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.btn{display:inline-block;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:1.05rem;padding:.95rem 2.2rem;border-radius:999px;background:var(--primary);color:var(--white);text-decoration:none;box-shadow:var(--shadow);transition:transform .15s,background .2s,box-shadow .2s}
+.btn:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn:focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+.btn.secondary{background:var(--secondary)}
+.btn.secondary:hover{background:#0D9488}
+.hero .btn{margin-top:2.2rem}
+
+/* ===== Social proof ===== */
+.proof{padding:1rem 0 3rem}
+.proof-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:2.2rem 1.5rem;text-align:center;max-width:640px;margin:0 auto}
+.stars{font-size:1.4rem;letter-spacing:.15em}
+.proof-card .rating{margin-top:.4rem;font-weight:600;color:var(--text)}
+.proof-card blockquote{margin-top:1rem;font-size:1.15rem;font-style:italic;color:var(--text-light)}
+.avatars{display:flex;justify-content:center;margin-top:1.3rem}
+.avatar{width:38px;height:38px;border-radius:50%;border:3px solid var(--white);margin-left:-10px;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--white)}
+.avatar:first-child{margin-left:0}
+
+/* ===== Sections ===== */
+section{padding:3.5rem 0}
+.section-title{text-align:center;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-.01em}
+.section-sub{text-align:center;color:var(--text-light);max-width:560px;margin:.7rem auto 0}
+
+/* ===== Benefits ===== */
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin-top:2.2rem}
+.card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.6rem;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+.card p{color:var(--text-light);font-size:.95rem}
+.benefit-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:.9rem;background:rgba(79,70,229,.1)}
+.benefit-icon.teal{background:rgba(20,184,166,.12)}
+
+/* ===== Preview ===== */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin-top:2.2rem}
+.preview-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.6rem;border-top:4px solid var(--primary);transition:transform .2s,box-shadow .2s}
+.preview-card:nth-child(even){border-top-color:var(--secondary)}
+.preview-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.preview-card .emoji{font-size:1.7rem}
+.preview-card h3{font-size:1.05rem;font-weight:700;margin:.6rem 0 .35rem}
+.preview-card p{color:var(--text-light);font-size:.93rem}
+
+/* ===== Sample prompts ===== */
+.prompt-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.4rem;margin-top:1.2rem}
+.prompt-card .tag{display:inline-block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--secondary);background:rgba(20,184,166,.1);padding:.2rem .7rem;border-radius:999px;margin-bottom:.7rem}
+.prompt-text{background:var(--bg);border-radius:10px;padding:1rem;font-size:.93rem;color:var(--text);border:1px solid rgba(31,41,55,.07)}
+.copy-btn{margin-top:.85rem;background:var(--primary);color:var(--white);border:none;font-family:inherit;font-weight:600;font-size:.9rem;padding:.55rem 1.3rem;border-radius:999px;cursor:pointer;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:.45rem}
+.copy-btn:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.copy-btn:focus-visible{outline:3px solid var(--secondary);outline-offset:2px}
+.copy-btn.copied{background:var(--secondary)}
+
+/* ===== Lead capture ===== */
+.signup-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:2.4rem 1.6rem;max-width:520px;margin:2rem auto 0}
+.signup-card h2{font-size:1.6rem;font-weight:800;text-align:center}
+.signup-card .sub{text-align:center;color:var(--text-light);margin:.5rem 0 1.6rem;font-size:.97rem}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.35rem}
+.field input{width:100%;font-family:inherit;font-size:1rem;padding:.8rem 1rem;border:1.5px solid rgba(31,41,55,.15);border-radius:10px;background:var(--bg);transition:border-color .2s,box-shadow .2s}
+.field input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.15)}
+.field .error{color:#DC2626;font-size:.82rem;margin-top:.3rem;display:none}
+.field.invalid input{border-color:#DC2626}
+.field.invalid .error{display:block}
+.signup-card .btn{width:100%;margin-top:.4rem}
+.success-msg{display:none;text-align:center;padding:1.5rem 0}
+.success-msg .big-check{width:60px;height:60px;border-radius:50%;background:rgba(20,184,166,.14);color:var(--secondary);font-size:1.8rem;display:inline-flex;align-items:center;justify-content:center;margin-bottom:.9rem}
+.success-msg h3{font-size:1.25rem;font-weight:700}
+.success-msg p{color:var(--text-light);margin-top:.4rem}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:720px;margin:2rem auto 0}
+.faq-item{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:.9rem;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;font-family:inherit;font-size:1rem;font-weight:600;color:var(--text);padding:1.15rem 1.3rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-q:focus-visible{outline:3px solid var(--secondary);outline-offset:-3px;border-radius:var(--radius)}
+.faq-q .chev{flex:none;transition:transform .3s;color:var(--primary);font-size:.85rem}
+.faq-item.open .chev{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 1.3rem 1.2rem;color:var(--text-light);font-size:.95rem}
+
+/* ===== Final CTA ===== */
+.final-cta{text-align:center;background:linear-gradient(135deg,var(--primary),#6366F1 60%,var(--secondary));border-radius:var(--radius);padding:3.2rem 1.5rem;color:var(--white);box-shadow:var(--shadow-lg)}
+.final-cta h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800}
+.final-cta .btn{margin-top:1.6rem;background:var(--white);color:var(--primary)}
+.final-cta .btn:hover{background:#EEF2FF}
+
+/* ===== Footer ===== */
+footer{padding:2.8rem 0 5rem;text-align:center;color:var(--text-light);font-size:.92rem}
+footer .foot-brand{font-weight:700;color:var(--text)}
+footer .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem;list-style:none;margin:1rem 0}
+footer a{text-decoration:none;color:var(--text-light);transition:color .2s}
+footer a:hover,footer a:focus{color:var(--primary)}
+
+/* ===== Scroll to top ===== */
+.to-top{position:fixed;right:1.2rem;bottom:1.2rem;width:46px;height:46px;border-radius:50%;border:none;background:var(--primary);color:var(--white);font-size:1.1rem;cursor:pointer;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:opacity .3s,transform .2s;z-index:90}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{transform:translateY(-3px);background:var(--primary-dark)}
+.to-top:focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+
+/* ===== Animations ===== */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .fade-in{opacity:1;transform:none;transition:none}
+  *{transition:none!important;animation:none!important}
+}
+
+/* ===== Mobile ===== */
+@media (max-width:760px){
+  .hamburger{display:block}
+  .nav-links{position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--white);box-shadow:var(--shadow-lg);padding:1.2rem;gap:1rem;display:none;border-radius:0 0 var(--radius) var(--radius)}
+  .nav-links.open{display:flex}
+  .hero{padding:3rem 0 2.5rem}
+  section{padding:2.6rem 0}
+  .checks{grid-template-columns:1fr 1fr}
+}
+@media (max-width:430px){
+  .checks{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#top" class="brand"><span class="brand-dot" aria-hidden="true"></span>Prompt Vault</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#preview">What's Inside</a></li>
+      <li><a href="#samples">Free Samples</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#signup" class="nav-cta">Get Access</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="container">
+    <h1 class="fade-in">The Educator's <span class="accent">Prompt Vault</span></h1>
+    <p class="sub fade-in">200 ready-to-use prompts for lesson planning, grading, assessment, and student engagement.</p>
+    <ul class="checks fade-in" aria-label="What the library covers">
+      <li><span class="tick" aria-hidden="true">✓</span>Lesson planning</li>
+      <li><span class="tick" aria-hidden="true">✓</span>Quiz generation</li>
+      <li><span class="tick" aria-hidden="true">✓</span>Rubrics</li>
+      <li><span class="tick" aria-hidden="true">✓</span>Student feedback</li>
+      <li><span class="tick" aria-hidden="true">✓</span>Differentiation</li>
+      <li><span class="tick" aria-hidden="true">✓</span>Parent communication</li>
+      <li><span class="tick" aria-hidden="true">✓</span>Research assistance</li>
+      <li><span class="tick" aria-hidden="true">✓</span>Administrative tasks</li>
+    </ul>
+    <a href="#signup" class="btn fade-in">Get Instant Access</a>
+  </div>
+</header>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="proof" aria-label="Educator reviews">
+  <div class="container">
+    <div class="proof-card fade-in">
+      <div class="stars" aria-hidden="true">⭐⭐⭐⭐⭐</div>
+      <p class="rating">4.9/5 from 3,000+ educators</p>
+      <blockquote>"These prompts save me hours every week."</blockquote>
+      <div class="avatars" aria-hidden="true">
+        <span class="avatar" style="background:#4F46E5">JM</span>
+        <span class="avatar" style="background:#14B8A6">AK</span>
+        <span class="avatar" style="background:#F59E0B">SN</span>
+        <span class="avatar" style="background:#8B5CF6">PO</span>
+        <span class="avatar" style="background:#EC4899">DT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section id="benefits">
+  <div class="container">
+    <h2 class="section-title fade-in">Why Teachers Love This Library</h2>
+    <div class="grid-4">
+      <div class="card fade-in">
+        <div class="benefit-icon" aria-hidden="true">⏱️</div>
+        <h3>Save Time</h3>
+        <p>Generate lessons, quizzes, and activities in seconds.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="benefit-icon teal" aria-hidden="true">🌿</div>
+        <h3>Reduce Burnout</h3>
+        <p>Automate repetitive teaching tasks.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="benefit-icon" aria-hidden="true">✨</div>
+        <h3>Improve Student Engagement</h3>
+        <p>Create personalized learning experiences.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="benefit-icon teal" aria-hidden="true">🤖</div>
+        <h3>Works With Any AI</h3>
+        <p>Compatible with ChatGPT, Claude, Gemini, and Copilot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PREVIEW ===== -->
+<section id="preview">
+  <div class="container">
+    <h2 class="section-title fade-in">What's Inside?</h2>
+    <div class="grid-3">
+      <div class="preview-card fade-in">
+        <span class="emoji" aria-hidden="true">📚</span>
+        <h3>Lesson Planning</h3>
+        <p>Full lesson plans, learning objectives, warm-ups, and activity ideas for any subject and grade level.</p>
+      </div>
+      <div class="preview-card fade-in">
+        <span class="emoji" aria-hidden="true">📝</span>
+        <h3>Assessment &amp; Rubrics</h3>
+        <p>Quizzes, exam questions, and ready-made rubrics aligned to your learning outcomes.</p>
+      </div>
+      <div class="preview-card fade-in">
+        <span class="emoji" aria-hidden="true">💬</span>
+        <h3>Student Feedback</h3>
+        <p>Constructive, personalized feedback comments that encourage growth without taking hours to write.</p>
+      </div>
+      <div class="preview-card fade-in">
+        <span class="emoji" aria-hidden="true">🎯</span>
+        <h3>Differentiation</h3>
+        <p>Adapt any material for mixed-ability classrooms, learning differences, and language levels.</p>
+      </div>
+      <div class="preview-card fade-in">
+        <span class="emoji" aria-hidden="true">📧</span>
+        <h3>Parent Communication</h3>
+        <p>Professional emails, newsletters, and progress updates written in a warm, clear tone.</p>
+      </div>
+      <div class="preview-card fade-in">
+        <span class="emoji" aria-hidden="true">🔬</span>
+        <h3>Research &amp; Productivity</h3>
+        <p>Summarize readings, brainstorm ideas, and handle administrative tasks in a fraction of the time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SAMPLE PROMPTS ===== -->
+<section id="samples">
+  <div class="container">
+    <h2 class="section-title fade-in">Try 3 Free Prompts</h2>
+    <p class="section-sub fade-in">Copy any prompt below and paste it into ChatGPT, Claude, Gemini, or Copilot. No experience needed.</p>
+
+    <div class="prompt-card fade-in">
+      <span class="tag">Lesson Planning</span>
+      <p class="prompt-text" id="prompt1">Act as an experienced [subject] teacher. Create a 40-minute lesson plan for [grade level] students on the topic of [topic]. Include a learning objective, a 5-minute warm-up activity, the main teaching activity, a quick formative assessment, and a closing reflection question. Keep materials simple and low-cost.</p>
+      <button class="copy-btn" data-target="prompt1">📋 Copy Prompt</button>
+    </div>
+
+    <div class="prompt-card fade-in">
+      <span class="tag">Assessment &amp; Rubrics</span>
+      <p class="prompt-text" id="prompt2">Create a 10-question quiz on [topic] for [grade level] students. Include 6 multiple-choice questions, 2 short-answer questions, and 2 application questions. Provide an answer key with brief explanations for each correct answer.</p>
+      <button class="copy-btn" data-target="prompt2">📋 Copy Prompt</button>
+    </div>
+
+    <div class="prompt-card fade-in">
+      <span class="tag">Parent Communication</span>
+      <p class="prompt-text" id="prompt3">Write a warm, professional email to a parent about their child's progress in [subject]. The student has improved in [strength] but still needs support with [area of growth]. Keep the tone encouraging, suggest one simple way the parent can help at home, and keep it under 150 words.</p>
+      <button class="copy-btn" data-target="prompt3">📋 Copy Prompt</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEAD CAPTURE ===== -->
+<section id="signup">
+  <div class="container">
+    <div class="signup-card fade-in">
+      <div id="formWrap">
+        <h2>Get Instant Access</h2>
+        <p class="sub">Enter your details below to access the AI Prompt Library.</p>
+        <form id="leadForm" novalidate>
+          <div class="field" id="fieldName">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" required aria-describedby="errName">
+            <p class="error" id="errName">Please enter your full name.</p>
+          </div>
+          <div class="field" id="fieldEmail">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="errEmail">
+            <p class="error" id="errEmail">Please enter a valid email address.</p>
+          </div>
+          <div class="field" id="fieldSchool">
+            <label for="school">Institution / School</label>
+            <input type="text" id="school" name="school" autocomplete="organization" required aria-describedby="errSchool">
+            <p class="error" id="errSchool">Please enter your institution or school.</p>
+          </div>
+          <button type="submit" class="btn">Get Free Access</button>
+        </form>
+      </div>
+      <div class="success-msg" id="successMsg" role="status">
+        <div class="big-check" aria-hidden="true">✓</div>
+        <h3>Thank you! Your request has been received.</h3>
+        <p>Keep an eye on your inbox — your prompt library is on its way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <button class="faq-q" aria-expanded="false">
+          What AI tools work with these prompts?
+          <span class="chev" aria-hidden="true">▼</span>
+        </button>
+        <div class="faq-a">
+          <p>All of them. The prompts are written in plain language, so they work with ChatGPT, Claude, Gemini, Microsoft Copilot, and any other AI chatbot. Just copy, paste, and fill in the blanks.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" aria-expanded="false">
+          Do I need AI experience?
+          <span class="chev" aria-hidden="true">▼</span>
+        </button>
+        <div class="faq-a">
+          <p>Not at all. Every prompt is ready to use as-is. If you can copy and paste, you can use this library. Each prompt shows you exactly where to add your own details, like the subject or grade level.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" aria-expanded="false">
+          Can professors use them?
+          <span class="chev" aria-hidden="true">▼</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. The prompts work across K-12, higher education, and vocational training. Many are easily adapted for syllabus design, research support, and university-level assessment.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" aria-expanded="false">
+          Are updates included?
+          <span class="chev" aria-hidden="true">▼</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. As AI tools evolve, the library is updated with new and improved prompts. Everyone with access receives every update at no extra cost.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section aria-label="Final call to action">
+  <div class="container">
+    <div class="final-cta fade-in">
+      <h2>Start Saving Hours Every Week</h2>
+      <a href="#signup" class="btn">Get Free Access</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <p class="foot-brand">The Educator's AI Prompt Vault</p>
+    <p>Created by Ronald Nyanzi · © <span id="year"></span></p>
+    <ul class="foot-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="https://github.com/ronaldnyanzi" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button class="to-top" id="toTop" aria-label="Scroll back to top">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Current year */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* Hamburger menu */
+  var burger = document.getElementById("hamburger");
+  var navLinks = document.getElementById("navLinks");
+  burger.addEventListener("click", function(){
+    var open = navLinks.classList.toggle("open");
+    burger.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  navLinks.addEventListener("click", function(e){
+    if(e.target.tagName === "A"){
+      navLinks.classList.remove("open");
+      burger.classList.remove("open");
+      burger.setAttribute("aria-expanded","false");
+    }
+  });
+
+  /* Fade-in on scroll */
+  var faders = document.querySelectorAll(".fade-in");
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.12});
+    faders.forEach(function(el){ io.observe(el); });
+  } else {
+    faders.forEach(function(el){ el.classList.add("visible"); });
+  }
+
+  /* Copy prompt buttons */
+  document.querySelectorAll(".copy-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var text = document.getElementById(btn.dataset.target).textContent;
+      function done(){
+        var original = btn.innerHTML;
+        btn.innerHTML = "✓ Copied!";
+        btn.classList.add("copied");
+        setTimeout(function(){
+          btn.innerHTML = original;
+          btn.classList.remove("copied");
+        }, 2000);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text, done); });
+      } else {
+        fallbackCopy(text, done);
+      }
+    });
+  });
+  function fallbackCopy(text, cb){
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta);
+    cb();
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll(".faq-q").forEach(function(q){
+    q.addEventListener("click", function(){
+      var item = q.parentElement;
+      var answer = item.querySelector(".faq-a");
+      var isOpen = item.classList.contains("open");
+      /* close others */
+      document.querySelectorAll(".faq-item.open").forEach(function(other){
+        if(other !== item){
+          other.classList.remove("open");
+          other.querySelector(".faq-q").setAttribute("aria-expanded","false");
+          other.querySelector(".faq-a").style.maxHeight = "0";
+        }
+      });
+      if(isOpen){
+        item.classList.remove("open");
+        q.setAttribute("aria-expanded","false");
+        answer.style.maxHeight = "0";
+      } else {
+        item.classList.add("open");
+        q.setAttribute("aria-expanded","true");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+
+  /* Lead form validation */
+  var form = document.getElementById("leadForm");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var valid = true;
+
+    var name = document.getElementById("fullName");
+    var email = document.getElementById("email");
+    var school = document.getElementById("school");
+
+    function check(input, fieldId, condition){
+      var field = document.getElementById(fieldId);
+      if(condition){
+        field.classList.remove("invalid");
+        input.removeAttribute("aria-invalid");
+      } else {
+        field.classList.add("invalid");
+        input.setAttribute("aria-invalid","true");
+        valid = false;
+      }
+    }
+
+    check(name, "fieldName", name.value.trim().length > 1);
+    check(email, "fieldEmail", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()));
+    check(school, "fieldSchool", school.value.trim().length > 1);
+
+    if(valid){
+      document.getElementById("formWrap").style.display = "none";
+      document.getElementById("successMsg").style.display = "block";
+    } else {
+      var firstInvalid = form.querySelector(".invalid input");
+      if(firstInvalid) firstInvalid.focus();
+    }
+  });
+
+  /* Scroll-to-top button */
+  var toTop = document.getElementById("toTop");
+  window.addEventListener("scroll", function(){
+    toTop.classList.toggle("show", window.scrollY > 500);
+  }, {passive:true});
+  toTop.addEventListener("click", function(){
+    window.scrollTo({top:0, behavior:"smooth"});
+  });
+})();
+</script>
+</body>
+</html>
